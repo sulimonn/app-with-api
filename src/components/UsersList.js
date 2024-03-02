@@ -53,18 +53,9 @@ const UsersList = () => {
     );
 
   return (
-    <div className="sm:w-3/4 mx-auto pt-8">
+    <div className="sm:w-3/4 w-11/12 mx-auto pt-8">
       <h1 className="text-2xl font-bold mb-4 text-gray-100">Users</h1>
       <div className="flex gap-4 items-center mb-4">
-        <button
-          onClick={handleRefresh}
-          className={
-            'text-white font-bold py-2 px-4 rounded transition' +
-            (refetching ? ' bg-blue-700' : ' hover:bg-blue-700 bg-blue-500')
-          }
-        >
-          {refetching ? 'Refreshing...' : 'Refresh'}
-        </button>
         <div>
           <label htmlFor="sortBy" className="mr-2 text-gray-300">
             Sort by:
@@ -88,8 +79,19 @@ const UsersList = () => {
             id="filterBy"
             value={filterBy}
             onChange={handleFilterByChange}
-            className="p-1 border border-gray-600 bg-gray-700 rounded"
+            className="p-1 border border-gray-600 bg-gray-700 rounded w-32 md:w-64 text-gray-300"
           />
+        </div>
+        <div className="self-end">
+          <button
+            onClick={handleRefresh}
+            className={
+              'text-white font-bold py-2 px-4 rounded transition' +
+              (refetching ? ' bg-blue-700' : ' hover:bg-blue-700 bg-blue-500')
+            }
+          >
+            {refetching ? 'Refetching...' : 'Refresh'}
+          </button>
         </div>
       </div>
       <hr className="mb-4" />
